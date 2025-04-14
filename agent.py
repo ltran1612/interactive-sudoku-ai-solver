@@ -1,5 +1,7 @@
+import os
 import time
 from typing import Literal
+from dotenv import load_dotenv
 import dspy
 
 from symbolic.world import SudokuWorld
@@ -10,7 +12,8 @@ lm = dspy.LM(
     max_tokens=20000,
 )
 
-lm = dspy.LM('openai/gpt-4o-mini', api_key='<API-KEY-HERE>')
+load_dotenv()
+lm = dspy.LM('openai/gpt-4o-mini', api_key=os.getenv("OPENAPI_KEY"))
 dspy.settings.configure(lm=lm)
 
 model = SudokuWorld()
