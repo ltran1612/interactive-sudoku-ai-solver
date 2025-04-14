@@ -1,0 +1,4 @@
+test.py
+*.pdf
+*__pycache__*
+.env
